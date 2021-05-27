@@ -1,0 +1,19 @@
+﻿@page "/cpuTemperature"
+
+@using WebApplication.Data
+@inject CpuTemperatureService _cpuTemperatureService
+
+<h1>Counter</h1>
+
+<p>Current CPU temperature: @_currentCpuTemperature</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Fetch temperature</button>
+
+@code {
+    private string _currentCpuTemperature = "Unknown";
+
+    private void IncrementCount()
+    {
+        _currentCpuTemperature = _cpuTemperatureService.TryRead()?.ToString() ?? "N/A";
+    }
+}
