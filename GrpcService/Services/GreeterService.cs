@@ -20,7 +20,7 @@ namespace GrpcService
         {
             return Task.FromResult(new HelloReply
             {
-                Message = "Hello " + request.Name
+                Message = "Pozdrav " + request.Name
             });
         }
     }
